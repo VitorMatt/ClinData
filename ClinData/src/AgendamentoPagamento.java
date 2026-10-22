@@ -7,7 +7,7 @@ public class AgendamentoPagamento {
     private Integer idAgendamento;
     private LocalTime horario;
     private LocalDate data;
-    private String status;
+    private Status status;
     private LocalDateTime dataHoraPagamento;
     private String formaPagamento;
     private Double valor;
@@ -48,7 +48,7 @@ public class AgendamentoPagamento {
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        this.status = Status.valueOf(status);
     }
 
     public LocalDateTime getDataHoraPagamento() {
