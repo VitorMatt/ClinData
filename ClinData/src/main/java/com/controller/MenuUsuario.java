@@ -1,7 +1,8 @@
 package main.java.com.controller;
 
 public class MenuUsuario {
-
+    
+    
     public MenuUsuario() {
     }
 

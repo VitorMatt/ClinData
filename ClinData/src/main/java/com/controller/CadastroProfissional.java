@@ -55,8 +55,8 @@ public class CadastroProfissional {
         System.out.println("CPF: " + profissional.getCpf());
         System.out.println("Especialidade: " + profissional.getEspecialidade());
 
-        profissionais.add(profissional);
-
+        Usuarios usuario = new Usuarios();
+        usuario.registrarProfissional(profissional);
     }
 
     public Profissional mostrarCadastroPorId(int idProfissional) {
