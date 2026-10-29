@@ -1,3 +1,4 @@
+package main.java.com.model;
 public enum Estado {
     AC,
     AL,

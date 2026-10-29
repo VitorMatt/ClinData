@@ -1,5 +1,9 @@
+package main.java.com.controller;
 import java.time.LocalDate;
 import java.util.Scanner;
+
+import main.java.com.model.Profissional;
+
 import java.util.ArrayList;
 import java.util.List;
 

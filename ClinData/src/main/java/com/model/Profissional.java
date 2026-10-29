@@ -1,3 +1,5 @@
+package main.java.com.model;
+
 public class Profissional extends Usuario {
 
     private Integer idProfissional;

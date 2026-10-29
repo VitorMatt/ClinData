@@ -1,3 +1,4 @@
+package main.java.com.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
@@ -43,7 +44,7 @@ public class AgendamentoPagamento {
         this.data = data;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 

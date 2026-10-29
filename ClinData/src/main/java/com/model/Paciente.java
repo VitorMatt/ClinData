@@ -1,3 +1,4 @@
+package main.java.com.model;
 import java.time.LocalDate;
 
 public class Paciente extends Usuario{

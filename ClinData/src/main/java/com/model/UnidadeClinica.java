@@ -1,3 +1,5 @@
+package main.java.com.model;
+
 public class UnidadeClinica {
 
     private int id_unidade_clinica;
