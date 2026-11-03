@@ -11,8 +11,6 @@ public class Usuario {
     private String cpf;
     private String endereco;
 
-    // Getters
-
     public String getNome() {
         return nome;
     }
@@ -40,8 +38,6 @@ public class Usuario {
     public String getEndereco() {
         return endereco;
     }
-
-    // Setters
 
     public void setNome(String nome) {
         this.nome = nome;

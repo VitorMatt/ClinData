@@ -1,21 +1,30 @@
+
 package main.java.com.model;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class Procedimento {
 
     private Integer idProcedimento;
-    private String resumo;
-    private LocalDate data;
-    private LocalTime horario;
+    private String nome;
     private String descricao;
-    private String recomendacoes;
-    private String medicamentos;
-    private String status;
+    private Double valor;
 
     private Consulta consulta;
 
     public Procedimento() {
+    }
+
+    public Procedimento(
+            Integer idProcedimento,
+            String nome,
+            String descricao,
+            Double valor,
+            Consulta consulta) {
+
+        this.idProcedimento = idProcedimento;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+        this.consulta = consulta;
     }
 
     public Integer getIdProcedimento() {
@@ -26,28 +35,12 @@ public class Procedimento {
         this.idProcedimento = idProcedimento;
     }
 
-    public String getResumo() {
-        return resumo;
+    public String getNome() {
+        return nome;
     }
 
-    public void setResumo(String resumo) {
-        this.resumo = resumo;
-    }
-
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
-    }
-
-    public LocalTime getHorario() {
-        return horario;
-    }
-
-    public void setHorario(LocalTime horario) {
-        this.horario = horario;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getDescricao() {
@@ -58,28 +51,12 @@ public class Procedimento {
         this.descricao = descricao;
     }
 
-    public String getRecomendacoes() {
-        return recomendacoes;
+    public Double getValor() {
+        return valor;
     }
 
-    public void setRecomendacoes(String recomendacoes) {
-        this.recomendacoes = recomendacoes;
-    }
-
-    public String getMedicamentos() {
-        return medicamentos;
-    }
-
-    public void setMedicamentos(String medicamentos) {
-        this.medicamentos = medicamentos;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
 
     public Consulta getConsulta() {

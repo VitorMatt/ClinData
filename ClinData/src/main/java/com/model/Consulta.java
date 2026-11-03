@@ -1,4 +1,6 @@
+
 package main.java.com.model;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -9,13 +11,32 @@ public class Consulta {
     private LocalDate data;
     private LocalTime horario;
     private LocalTime duracao;
-    private String realizada;
+    private boolean realizada;
 
-    private UnidadeClinica unidadeClinica;
     private Paciente paciente;
     private Profissional profissional;
 
     public Consulta() {
+    }
+
+    public Consulta(
+            Integer idConsulta,
+            String tipo,
+            LocalDate data,
+            LocalTime horario,
+            LocalTime duracao,
+            boolean realizada,
+            Paciente paciente,
+            Profissional profissional) {
+
+        this.idConsulta = idConsulta;
+        this.tipo = tipo;
+        this.data = data;
+        this.horario = horario;
+        this.duracao = duracao;
+        this.realizada = realizada;
+        this.paciente = paciente;
+        this.profissional = profissional;
     }
 
     public Integer getIdConsulta() {
@@ -58,20 +79,12 @@ public class Consulta {
         this.duracao = duracao;
     }
 
-    public String getRealizada() {
+    public boolean isRealizada() {
         return realizada;
     }
 
-    public void setRealizada(String realizada) {
+    public void setRealizada(boolean realizada) {
         this.realizada = realizada;
-    }
-
-    public UnidadeClinica getUnidadeClinica() {
-        return unidadeClinica;
-    }
-
-    public void setUnidadeClinica(UnidadeClinica unidadeClinica) {
-        this.unidadeClinica = unidadeClinica;
     }
 
     public Paciente getPaciente() {

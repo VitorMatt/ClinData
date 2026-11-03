@@ -1,7 +1,8 @@
 package main.java.com.model;
+
 import java.time.LocalDate;
 
-public class Paciente extends Usuario{
+public class Paciente extends Usuario {
 
     private Integer idPaciente;
     private String relatorioMedico;
@@ -16,8 +17,10 @@ public class Paciente extends Usuario{
     public Paciente(Integer idPaciente, String nome, String cpf,
                     LocalDate dataNascimento, String telefone,
                     String email, String endereco, Boolean preferencial) {
+
         this.idPaciente = idPaciente;
         this.preferencial = preferencial;
+
         setNome(nome);
         setCpf(cpf);
         setDataNascimento(dataNascimento);
@@ -64,54 +67,6 @@ public class Paciente extends Usuario{
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
-    }
-
-    public LocalDate getDataNascimento() {
-        return getDataNascimento();
-    }
-
-    public void setDataNascimento(LocalDate dataNascimento) {
-        setDataNascimento(dataNascimento);
-    }
-
-    public String getEmail() {
-        return getEmail();
-    }
-
-    public void setEmail(String email) {
-        setEmail(email);
-    }
-
-    public String getCpf() {
-        return getCpf();
-    }
-
-    public void setCpf(String cpf) {
-        setCpf(cpf);
-    }
-
-    public String getTelefone() {
-        return getTelefone();
-    }
-
-    public void setTelefone(String telefone) {
-        setTelefone(telefone);
-    }
-
-    public String getNome() {
-        return getNome();
-    }
-
-    public void setNome(String nome) {
-        setNome(nome);
-    }
-
-    public String getEndereco() {
-        return getEndereco();
-    }
-
-    public void setEndereco(String endereco) {
-        setEndereco(endereco);
     }
 
     public Boolean getPreferencial() {
