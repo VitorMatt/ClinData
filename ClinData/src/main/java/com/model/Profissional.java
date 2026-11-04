@@ -38,9 +38,9 @@ public class Profissional extends Usuario {
 
     @Override
     public String toString() {
-        return super.toString() + "Profissional\n" +
-                "\nId: " + idProfissional +
-                "\nEspecialidade: " + especialidade + '\'' +
-                "\nUnidadeClinica: " + unidadeClinica;
+        return super.toString() +
+                "\nEspecialidade: " + especialidade +
+                "\nUnidade Clínica: " + unidadeClinica.getIdUnidade() + " - " +
+                unidadeClinica.getNome() + " (" + unidadeClinica.getEstado() + ")";
     }
 }

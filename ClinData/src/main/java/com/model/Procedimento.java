@@ -6,7 +6,7 @@ public class Procedimento {
     private Integer idProcedimento;
     private String nome;
     private String descricao;
-    private Double valor;
+    private String orientacoes;
 
     private Consulta consulta;
 
@@ -17,13 +17,13 @@ public class Procedimento {
             Integer idProcedimento,
             String nome,
             String descricao,
-            Double valor,
+            String orientacoes,
             Consulta consulta) {
 
         this.idProcedimento = idProcedimento;
         this.nome = nome;
         this.descricao = descricao;
-        this.valor = valor;
+        this.orientacoes = orientacoes;
         this.consulta = consulta;
     }
 
@@ -51,12 +51,12 @@ public class Procedimento {
         this.descricao = descricao;
     }
 
-    public Double getValor() {
-        return valor;
+    public String getOrientacoes() {
+        return orientacoes;
     }
 
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public void setOrientacoes(String orientacoes) {
+        this.orientacoes = orientacoes;
     }
 
     public Consulta getConsulta() {
@@ -65,5 +65,14 @@ public class Procedimento {
 
     public void setConsulta(Consulta consulta) {
         this.consulta = consulta;
+    }
+
+    @Override
+    public String toString() {
+        return  "\nId: " + idProcedimento +
+                "\nNome: " + nome +
+                "\nDescricao: " + descricao +
+                "\nOrientações: " + orientacoes +
+                "\nConsulta referente: " + consulta.toString();
     }
 }

@@ -79,12 +79,11 @@ public class Paciente extends Usuario {
 
     @Override
     public String toString() {
-        return super.toString() + "Paciente\n" +
-                "\nId: " + idPaciente +
-                "\nRelatorioMedico: " + relatorioMedico + '\'' +
-                "\nAlergias: " + alergias + '\'' +
-                "\nMedicamentos Em Uso: " + medicamentosEmUso + '\'' +
-                "\nObservacoes: " + observacoes + '\'' +
-                "\nPreferencial: " + preferencial;
+        return super.toString() +
+                "\nRelatorio Médico: " + (relatorioMedico != null ? relatorioMedico : " ") +
+                "\nAlergias: " + (alergias != null ? alergias : " ")  +
+                "\nMedicamentos Em Uso: " + (medicamentosEmUso != null ? medicamentosEmUso : " ") +
+                "\nObservacoes: " + (observacoes != null ? observacoes : " ") +
+                "\nPreferencial: " + (preferencial ? "Sim" : "Não");
     }
 }

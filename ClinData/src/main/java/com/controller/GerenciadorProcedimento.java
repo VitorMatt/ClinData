@@ -104,25 +104,8 @@ public class GerenciadorProcedimento {
         System.out.print("Descrição: ");
         procedimento.setDescricao(read.nextLine().trim());
 
-        System.out.print("Valor: ");
-
-        try {
-
-            procedimento.setValor(
-                    Double.parseDouble(
-                            read.nextLine().trim().replace(",", ".")
-                    )
-            );
-
-            if (procedimento.getValor() < 0) {
-                System.out.println("O valor não pode ser negativo!");
-                return;
-            }
-
-        } catch (NumberFormatException e) {
-            System.out.println("Valor inválido!");
-            return;
-        }
+        System.out.print("Orientações: ");
+        procedimento.setOrientacoes(read.nextLine().trim());
 
         procedimento.setConsulta(consultaSelecionada);
 
@@ -131,11 +114,10 @@ public class GerenciadorProcedimento {
         System.out.println("\nProcedimento cadastrado com sucesso!");
     }
 
-    // LISTAR PROCEDIMENTOS DO PROFISSIONAL
     public void listarProcedimentosProfissional(
             Profissional profissional) {
 
-        System.out.println("\n===== MEUS PROCEDIMENTOS =====");
+        System.out.println("\nPROCEDIMENTOS REGISTRADOS");
 
         boolean encontrado = false;
 
@@ -155,10 +137,9 @@ public class GerenciadorProcedimento {
         }
     }
 
-    // LISTAR PROCEDIMENTOS DO PACIENTE
     public void listarProcedimentosPaciente(Paciente paciente) {
 
-        System.out.println("\n===== MEUS PROCEDIMENTOS =====");
+        System.out.println("\nMEUS PROCEDIMENTOS");
 
         boolean encontrado = false;
 
@@ -178,7 +159,6 @@ public class GerenciadorProcedimento {
         }
     }
 
-    // MODIFICAR PROCEDIMENTO
     public void modificarProcedimento(Profissional profissional) {
 
         listarProcedimentosProfissional(profissional);
@@ -203,7 +183,7 @@ public class GerenciadorProcedimento {
 
         System.out.println("\n1 - Alterar nome");
         System.out.println("2 - Alterar descrição");
-        System.out.println("3 - Alterar valor");
+        System.out.println("3 - Alterar orientações");
 
         int opcao;
 
@@ -228,26 +208,8 @@ public class GerenciadorProcedimento {
 
             case 3:
 
-                System.out.print("Novo valor: ");
-
-                try {
-
-                    double valor = Double.parseDouble(
-                            read.nextLine().trim().replace(",", ".")
-                    );
-
-                    if (valor < 0) {
-                        System.out.println("Valor inválido!");
-                        return;
-                    }
-
-                    procedimento.setValor(valor);
-
-                } catch (NumberFormatException e) {
-                    System.out.println("Valor inválido!");
-                    return;
-                }
-
+                System.out.print("Nova orientação: ");
+                procedimento.setOrientacoes(read.nextLine().trim());
                 break;
 
             default:
@@ -258,7 +220,6 @@ public class GerenciadorProcedimento {
         System.out.println("Procedimento atualizado com sucesso!");
     }
 
-    // EXCLUIR PROCEDIMENTO
     public void excluirProcedimento(Profissional profissional) {
 
         listarProcedimentosProfissional(profissional);
@@ -300,7 +261,6 @@ public class GerenciadorProcedimento {
         }
     }
 
-    // BUSCAR PROCEDIMENTO POR ID E PROFISSIONAL
     private Procedimento buscarPorId(
             int id,
             Profissional profissional) {
@@ -320,31 +280,9 @@ public class GerenciadorProcedimento {
         return null;
     }
 
-    // EXIBIR PROCEDIMENTO
     public void exibirProcedimento(Procedimento procedimento) {
 
-        System.out.println("\n------------------------------");
-
-        System.out.println("ID: " +
-                procedimento.getIdProcedimento());
-
-        System.out.println("Nome: " +
-                procedimento.getNome());
-
-        System.out.println("Descrição: " +
-                procedimento.getDescricao());
-
-        System.out.printf("Valor: R$ %.2f%n",
-                procedimento.getValor());
-
-        System.out.println("Paciente: " +
-                procedimento.getConsulta().getPaciente().getNome());
-
-        System.out.println("Profissional: " +
-                procedimento.getConsulta().getProfissional().getNome());
-
-        System.out.println("Data da consulta: " +
-                procedimento.getConsulta().getData());
+        System.out.println(procedimento.toString());
     }
 
     public List<Procedimento> getProcedimentos() {

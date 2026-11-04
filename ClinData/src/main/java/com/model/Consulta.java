@@ -114,4 +114,17 @@ public class Consulta {
         return this.unidadeClinica;
     }
 
+    @Override
+    public String toString() {
+        return  "\nId: " + idConsulta +
+                "\nTipo: " + tipo +
+                "\nData: " + data +
+                "\nHorário: " + horario +
+                "\nDuração: " + duracao +
+                "\nRealizada? " + (realizada ? "Sim" : "Não") +
+                "\nPaciente: " + paciente.getNome() +
+                "\nProfissional: " + profissional.getNome() +
+                "\nUnidade Clínica: " + unidadeClinica.getIdUnidade() + " - " +
+                unidadeClinica.getNome() + " (" + unidadeClinica.getEstado() + ")";
+    }
 }

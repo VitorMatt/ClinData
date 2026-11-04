@@ -11,6 +11,7 @@ public class MenuProfissional {
 
     private Profissional profissional;
     private Scanner read;
+    private Usuarios usuarios;
 
     private GerenciadorAgendamento gerenciadorAgendamento;
     private GerenciadorConsulta gerenciadorConsulta;
@@ -19,12 +20,14 @@ public class MenuProfissional {
     public MenuProfissional(
             Profissional profissional,
             Scanner read,
+            Usuarios usuarios,
             GerenciadorAgendamento gerenciadorAgendamento,
             GerenciadorConsulta gerenciadorConsulta,
             GerenciadorProcedimento gerenciadorProcedimento) {
 
         this.profissional = profissional;
         this.read = read;
+        this.usuarios = usuarios;
         this.gerenciadorAgendamento = gerenciadorAgendamento;
         this.gerenciadorConsulta = gerenciadorConsulta;
         this.gerenciadorProcedimento = gerenciadorProcedimento;
@@ -180,10 +183,9 @@ public class MenuProfissional {
         System.out.print("\nInforme o CPF do paciente: ");
         String cpfPaciente = read.nextLine().trim();
 
-        Usuarios usuarios = new Usuarios();
         Usuario usuario = usuarios.buscarPorCPF(cpfPaciente);
 
-        if (usuario == null || !(usuario instanceof Paciente)) {
+        if (usuario == null) {
 
             System.out.println("Paciente não encontrado!");
             return;

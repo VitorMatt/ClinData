@@ -13,7 +13,7 @@ public class AgendamentoPagamento {
     private Status status;
     private LocalDateTime dataHoraPagamento;
     private String formaPagamento;
-    private Double valor;
+    private Double valor = 50.00;
 
     private UnidadeClinica unidadeClinica;
     private Paciente paciente;
@@ -105,16 +105,16 @@ public class AgendamentoPagamento {
 
     @Override
     public String toString() {
-        return "Agendamento:\n" +
-                "\nId: " + idAgendamento +
+        return  "\nId: " + idAgendamento +
                 "\nHorário: " + horario +
                 "\nData: " + data +
                 "\nStatus: " + status +
                 "\nData e hora do pagamento: " + dataHoraPagamento +
                 "\nForma de pagamento: '" + formaPagamento + '\'' +
                 "\nValor: " + valor +
-                "\nUnidade Clínica: " + unidadeClinica +
-                "\nPaciente: " + paciente +
-                "\nProfissional: " + profissional;
+                "\nUnidade Clínica: " + unidadeClinica.getIdUnidade() + " - " +
+                 unidadeClinica.getNome() + " (" + unidadeClinica.getEstado() + ")" +
+                "\nPaciente: " + paciente.getNome() +
+                "\nProfissional: " + profissional.getNome();
     }
 }

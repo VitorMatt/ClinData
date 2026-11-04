@@ -20,7 +20,7 @@ public class CadastroPaciente {
 
         Paciente paciente = new Paciente();
 
-        System.out.println("\nCADASTRO DE PACIENTE");
+        System.out.println("\nCADASTRO DE PACIENTE\n");
 
         System.out.print("Nome: ");
         paciente.setNome(read.nextLine().trim());
@@ -70,9 +70,15 @@ public class CadastroPaciente {
 
         usuarios.registrarUsuario(paciente);
 
-        System.out.println("\nPaciente cadastrado com sucesso!");
+        System.out.println("\nPaciente cadastrado com sucesso!\n");
 
         exibirPaciente(paciente);
+    }
+
+    public void exibirProntuario(Paciente paciente) {
+
+        System.out.println("\nPRONTUÁRIO DO PACIENTE");
+        System.out.println(paciente.toString());
     }
 
     public void exibirPaciente(Paciente paciente) {

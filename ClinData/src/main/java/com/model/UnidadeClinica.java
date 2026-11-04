@@ -35,15 +35,19 @@ public class UnidadeClinica {
         return nome;
     }
 
+    public Estado getEstado() {
+
+        return estado;
+    }
+
     @Override
     public String toString() {
-        return "UnidadeClinica\n" +
-                "\nId: " + id_unidade_clinica +
-                "\nNome: " + nome + '\'' +
+        return  "\n\nUnidade: " + id_unidade_clinica +
+                "\nNome: " + nome +
                 "\nEstado: " + estado +
-                "\nCidade: " + cidade + '\'' +
-                "\nRua: " + rua + '\'' +
+                "\nCidade: " + cidade +
+                "\nRua: " + rua +
                 "\nNumero_endereco: " + numero_endereco +
-                "\nComplemento: " + complemento;
+                "\nComplemento: " + complemento + "\n";
     }
 }

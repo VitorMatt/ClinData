@@ -156,6 +156,7 @@ public class MenuUsuario {
             MenuProfissional menu = new MenuProfissional(
                     (Profissional) usuario,
                     read,
+                    usuarios,
                     gerenciadorAgendamento,
                     gerenciadorConsulta,
                     gerenciadorProcedimento
@@ -170,7 +171,8 @@ public class MenuUsuario {
                     read,
                     gerenciadorAgendamento,
                     gerenciadorConsulta,
-                    gerenciadorProcedimento
+                    gerenciadorProcedimento,
+                    cadastroPaciente
             );
 
             menu.inicializarMenu();

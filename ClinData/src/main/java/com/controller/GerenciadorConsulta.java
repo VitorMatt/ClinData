@@ -143,18 +143,7 @@ public class GerenciadorConsulta {
 
         System.out.println("\n----------------------------");
 
-        System.out.println("Paciente: " +
-                consulta.getPaciente().getNome());
-
-        System.out.println("Profissional: " +
-                consulta.getProfissional().getNome());
-
-        System.out.println("Tipo: " + consulta.getTipo());
-        System.out.println("Data: " + consulta.getData());
-        System.out.println("Horário: " + consulta.getHorario());
-
-        System.out.println("Realizada: " +
-                (consulta.isRealizada() ? "Sim" : "Não"));
+        System.out.println(consulta.toString());
     }
 
 

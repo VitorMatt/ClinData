@@ -9,6 +9,7 @@ public class MenuPaciente {
     private Paciente paciente;
     private Scanner read;
 
+    private CadastroPaciente cadastroPaciente;
     private GerenciadorAgendamento gerenciadorAgendamento;
     private GerenciadorConsulta gerenciadorConsulta;
     private GerenciadorProcedimento gerenciadorProcedimento;
@@ -18,13 +19,15 @@ public class MenuPaciente {
             Scanner read,
             GerenciadorAgendamento gerenciadorAgendamento,
             GerenciadorConsulta gerenciadorConsulta,
-            GerenciadorProcedimento gerenciadorProcedimento) {
+            GerenciadorProcedimento gerenciadorProcedimento,
+            CadastroPaciente cadastroPaciente) {
 
         this.paciente = paciente;
         this.read = read;
         this.gerenciadorAgendamento = gerenciadorAgendamento;
         this.gerenciadorConsulta = gerenciadorConsulta;
         this.gerenciadorProcedimento = gerenciadorProcedimento;
+        this.cadastroPaciente = cadastroPaciente;
     }
 
     public void inicializarMenu() {
@@ -89,7 +92,7 @@ public class MenuPaciente {
                     break;
 
                 case 8:
-                    System.out.println("Consultar prontuário.");
+                    cadastroPaciente.exibirProntuario(paciente);
                     break;
                 case 9:
                     System.out.print("Informe o ID do agendamento: ");

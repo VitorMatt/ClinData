@@ -69,13 +69,12 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario\n" +
-                "\nNome: " + nome + '\'' +
-                "\nEmail: " + email + '\'' +
-                "\nSenha: " + senha + '\'' +
+        return  "\nNome: " + nome +
+                "\nEmail: " + email +
+                "\nSenha: " + senha +
                 "\nData de nascimento: " + dataNascimento +
-                "\nTelefone" + telefone + '\'' +
-                "\nCPF: " + cpf + '\'' +
+                "\nTelefone: " + telefone +
+                "\nCPF: " + cpf +
                 "\nEndereço: " + endereco;
     }
 }

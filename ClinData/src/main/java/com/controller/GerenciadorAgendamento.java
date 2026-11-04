@@ -213,15 +213,7 @@ public class GerenciadorAgendamento {
 
         System.out.println("\n----------------------------");
 
-        System.out.println("Paciente: " +
-                agendamento.getPaciente().getNome());
-
-        System.out.println("Profissional: " +
-                agendamento.getProfissional().getNome());
-
-        System.out.println("Data: " + agendamento.getData());
-        System.out.println("Horário: " + agendamento.getHorario());
-        System.out.println("Status: " + agendamento.getStatus());
+        System.out.println(agendamento.toString());
     }
 
 
