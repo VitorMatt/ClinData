@@ -1,5 +1,7 @@
 package main.java.com.model;
 
+import main.java.com.controller.UnidadesClinicas;
+
 public class Profissional extends Usuario {
 
     private Integer idProfissional;
@@ -29,7 +31,16 @@ public class Profissional extends Usuario {
         return unidadeClinica;
     }
 
-    public void setUnidadeClinica(UnidadeClinica unidadeClinica) {
-        this.unidadeClinica = unidadeClinica;
+    public void setUnidadeClinica(int id) {
+
+        this.unidadeClinica = new UnidadesClinicas().getUnidade(id);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Profissional\n" +
+                "\nId: " + idProfissional +
+                "\nEspecialidade: " + especialidade + '\'' +
+                "\nUnidadeClinica: " + unidadeClinica;
     }
 }

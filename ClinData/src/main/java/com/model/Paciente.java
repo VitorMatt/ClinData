@@ -76,4 +76,15 @@ public class Paciente extends Usuario {
     public void setPreferencial(Boolean preferencial) {
         this.preferencial = preferencial;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Paciente\n" +
+                "\nId: " + idPaciente +
+                "\nRelatorioMedico: " + relatorioMedico + '\'' +
+                "\nAlergias: " + alergias + '\'' +
+                "\nMedicamentos Em Uso: " + medicamentosEmUso + '\'' +
+                "\nObservacoes: " + observacoes + '\'' +
+                "\nPreferencial: " + preferencial;
+    }
 }

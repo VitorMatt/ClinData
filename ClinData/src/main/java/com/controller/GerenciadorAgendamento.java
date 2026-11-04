@@ -83,6 +83,10 @@ public class GerenciadorAgendamento {
         agendamento.setStatus(Status.PENDENTE);
         agendamento.setIdAgendamento(proximoIdAgendamento++);
 
+        UnidadesClinicas unidadesClinicas = new UnidadesClinicas();
+        System.out.println("Qual a unidade do agendamento?\n" + unidadesClinicas.listarUnidades());
+        agendamento.setUnidadeClinica(Integer.parseInt(read.nextLine().trim()));
+
         agendamentos.add(agendamento);
 
         System.out.println("\nAgendamento realizado com sucesso!");

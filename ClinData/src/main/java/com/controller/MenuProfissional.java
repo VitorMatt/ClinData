@@ -1,7 +1,10 @@
 
 package main.java.com.controller;
 
+import main.java.com.model.Paciente;
 import main.java.com.model.Profissional;
+import main.java.com.model.Usuario;
+
 import java.util.Scanner;
 
 public class MenuProfissional {
@@ -33,10 +36,10 @@ public class MenuProfissional {
 
         do {
 
-            System.out.println("\n===== CLINDATA | PROFISSIONAL =====");
-            System.out.println("Bem-vindo, " + profissional.getNome());
+            System.out.println("\nCLINDATA | PROFISSIONAL\n");
+            System.out.println("Bem-vindo(a), " + profissional.getNome());
 
-            System.out.println("\n1 - Visualizar meus dados");
+            System.out.println("1 - Visualizar meus dados");
             System.out.println("2 - Visualizar agendamentos");
             System.out.println("3 - Modificar agendamento");
             System.out.println("4 - Cancelar agendamento");
@@ -46,6 +49,7 @@ public class MenuProfissional {
             System.out.println("8 - Finalizar consulta");
             System.out.println("9 - Excluir consulta");
             System.out.println("10 - Gerenciar procedimentos");
+            System.out.println("11 - Alterar Prontuário do Paciente");
             System.out.println("0 - Sair");
 
             try {
@@ -105,6 +109,10 @@ public class MenuProfissional {
                     menuProcedimentos();
                     break;
 
+                case 11:
+                    modificarProntuarioPaciente();
+                    break;
+
                 case 0:
                     System.out.println("Saindo da área profissional...");
                     break;
@@ -122,7 +130,7 @@ public class MenuProfissional {
 
         do {
 
-            System.out.println("\n===== GERENCIAR PROCEDIMENTOS =====");
+            System.out.println("\nGERENCIAR PROCEDIMENTOS");
             System.out.println("1 - Cadastrar procedimento");
             System.out.println("2 - Visualizar procedimentos");
             System.out.println("3 - Modificar procedimento");
@@ -167,15 +175,115 @@ public class MenuProfissional {
         } while (opcao != 0);
     }
 
+    private void modificarProntuarioPaciente() {
+
+        System.out.print("\nInforme o CPF do paciente: ");
+        String cpfPaciente = read.nextLine().trim();
+
+        Usuarios usuarios = new Usuarios();
+        Usuario usuario = usuarios.buscarPorCPF(cpfPaciente);
+
+        if (usuario == null || !(usuario instanceof Paciente)) {
+
+            System.out.println("Paciente não encontrado!");
+            return;
+        }
+
+        Paciente paciente = (Paciente) usuario;
+
+        int opcao;
+
+        do {
+
+            System.out.println("\nMODIFICAR PRONTUÁRIO");
+
+            System.out.println("Paciente: " + paciente.getNome());
+
+            System.out.println("\n1 - Relatório Médico");
+            System.out.println("2 - Alergias do Paciente");
+            System.out.println("3 - Medicamentos em Uso");
+            System.out.println("4 - Observações");
+            System.out.println("5 - Paciente preferencial?");
+            System.out.println("0 - Voltar");
+
+            System.out.print("\nEscolha uma opção: ");
+
+            try {
+                opcao = Integer.parseInt(read.nextLine().trim());
+            } catch (NumberFormatException e) {
+                opcao = -1;
+            }
+
+            switch (opcao) {
+
+                case 1:
+
+                    System.out.print("Novo relatório médico: ");
+                    paciente.setRelatorioMedico(read.nextLine());
+
+                    System.out.println("Relatório médico atualizado!");
+                    break;
+
+                case 2:
+
+                    System.out.print("Informe as alergias do paciente: ");
+                    paciente.setAlergias(read.nextLine());
+
+                    System.out.println("Alergias atualizadas!");
+                    break;
+
+                case 3:
+
+                    System.out.print("Informe os medicamentos em uso: ");
+                    paciente.setMedicamentosEmUso(read.nextLine());
+
+                    System.out.println("Medicamentos atualizados!");
+                    break;
+
+                case 4:
+
+                    System.out.print("Informe as observações: ");
+                    paciente.setObservacoes(read.nextLine());
+
+                    System.out.println("Observações atualizadas!");
+                    break;
+
+                case 5:
+
+                    System.out.print("Paciente preferencial? (S/N): ");
+                    String resposta = read.nextLine().trim();
+
+                    if (resposta.equalsIgnoreCase("S")) {
+
+                        paciente.setPreferencial(true);
+                        System.out.println("Paciente definido como preferencial!");
+
+                    } else if (resposta.equalsIgnoreCase("N")) {
+
+                        paciente.setPreferencial(false);
+                        System.out.println("Paciente não é mais preferencial!");
+
+                    } else {
+
+                        System.out.println("Resposta inválida!");
+                    }
+
+                    break;
+
+                case 0:
+                    System.out.println("Voltando ao menu profissional...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+            }
+
+        } while (opcao != 0);
+    }
+
     private void mostrarDados() {
 
-        System.out.println("\n===== MEUS DADOS =====");
-
-        System.out.println("Nome: " + profissional.getNome());
-        System.out.println("E-mail: " + profissional.getEmail());
-        System.out.println("CPF: " + profissional.getCpf());
-        System.out.println("Telefone: " + profissional.getTelefone());
-        System.out.println("Especialidade: " +
-                profissional.getEspecialidade());
+        System.out.println("\nMEUS DADOS\n");
+        System.out.println(profissional.toString());
     }
 }

@@ -64,6 +64,10 @@ public class GerenciadorConsulta {
 
         consulta.setRealizada(false);
 
+        UnidadesClinicas unidadesClinicas = new UnidadesClinicas();
+        System.out.println("Qual a unidade da consulta?\n" + unidadesClinicas.listarUnidades());
+        consulta.setUnidadeClinica(Integer.parseInt(read.nextLine().trim()));
+
         consultas.add(consulta);
 
         agendamentoEncontrado.setStatus(Status.AGENDADO);

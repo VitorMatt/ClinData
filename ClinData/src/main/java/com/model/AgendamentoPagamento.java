@@ -1,4 +1,6 @@
 package main.java.com.model;
+import main.java.com.controller.UnidadesClinicas;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
@@ -80,8 +82,9 @@ public class AgendamentoPagamento {
         return unidadeClinica;
     }
 
-    public void setUnidadeClinica(UnidadeClinica unidadeClinica) {
-        this.unidadeClinica = unidadeClinica;
+    public void setUnidadeClinica(int id) {
+
+        this.unidadeClinica = new UnidadesClinicas().getUnidade(id);
     }
 
     public Paciente getPaciente() {
@@ -98,5 +101,20 @@ public class AgendamentoPagamento {
 
     public void setProfissional(Profissional profissional) {
         this.profissional = profissional;
+    }
+
+    @Override
+    public String toString() {
+        return "Agendamento:\n" +
+                "\nId: " + idAgendamento +
+                "\nHorário: " + horario +
+                "\nData: " + data +
+                "\nStatus: " + status +
+                "\nData e hora do pagamento: " + dataHoraPagamento +
+                "\nForma de pagamento: '" + formaPagamento + '\'' +
+                "\nValor: " + valor +
+                "\nUnidade Clínica: " + unidadeClinica +
+                "\nPaciente: " + paciente +
+                "\nProfissional: " + profissional;
     }
 }

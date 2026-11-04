@@ -45,6 +45,11 @@ public class CadastroProfissional {
         System.out.print("Especialidade: ");
         profissional.setEspecialidade(read.nextLine().trim());
 
+        UnidadesClinicas unidadesClinicas = new UnidadesClinicas();
+
+        System.out.println("Qual sua unidade de atuação?\n" + unidadesClinicas.listarUnidades());
+        profissional.setUnidadeClinica(Integer.parseInt(read.nextLine().trim()));
+
         usuarios.registrarUsuario(profissional);
 
         System.out.println("\nProfissional cadastrado com sucesso!");
@@ -54,17 +59,7 @@ public class CadastroProfissional {
 
     public void exibirProfissional(Profissional profissional) {
 
-        System.out.println("\n--- DADOS DO PROFISSIONAL ---");
-
-        System.out.println("ID: " + profissional.getIdProfissional());
-        System.out.println("Nome: " + profissional.getNome());
-        System.out.println("E-mail: " + profissional.getEmail());
-        System.out.println("CPF: " + profissional.getCpf());
-        System.out.println("Telefone: " + profissional.getTelefone());
-        System.out.println("Data de nascimento: " +
-                profissional.getDataNascimento());
-        System.out.println("Endereço: " + profissional.getEndereco());
-        System.out.println("Especialidade: " +
-                profissional.getEspecialidade());
+        System.out.println("\nDADOS DO PROFISSIONAL");
+        System.out.println(profissional.toString());
     }
 }

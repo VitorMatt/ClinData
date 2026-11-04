@@ -27,7 +27,6 @@ public class GerenciadorProcedimento {
         this.gerenciadorConsulta = gerenciadorConsulta;
     }
 
-    // CADASTRAR PROCEDIMENTO
     public void cadastrarProcedimento(Profissional profissional) {
 
         System.out.println("\n===== CADASTRAR PROCEDIMENTO =====");

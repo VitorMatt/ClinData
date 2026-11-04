@@ -33,10 +33,10 @@ public class MenuPaciente {
 
         do {
 
-            System.out.println("\n===== CLINDATA | PACIENTE =====");
-            System.out.println("Bem-vindo, " + paciente.getNome());
+            System.out.println("\nCLINDATA | PACIENTE\n");
+            System.out.println("Bem-vindo(a), " + paciente.getNome());
 
-            System.out.println("\n1 - Visualizar meus dados");
+            System.out.println("1 - Visualizar meus dados");
             System.out.println("2 - Agendar consulta");
             System.out.println("3 - Visualizar agendamentos");
             System.out.println("4 - Modificar agendamento");
@@ -112,7 +112,7 @@ public class MenuPaciente {
 
     private void mostrarDados() {
 
-        System.out.println("\n===== MEUS DADOS =====");
+        System.out.println("\nMEUS DADOS\n");
 
         System.out.println("Nome: " + paciente.getNome());
         System.out.println("E-mail: " + paciente.getEmail());

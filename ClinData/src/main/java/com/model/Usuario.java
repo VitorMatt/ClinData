@@ -66,4 +66,16 @@ public class Usuario {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario\n" +
+                "\nNome: " + nome + '\'' +
+                "\nEmail: " + email + '\'' +
+                "\nSenha: " + senha + '\'' +
+                "\nData de nascimento: " + dataNascimento +
+                "\nTelefone" + telefone + '\'' +
+                "\nCPF: " + cpf + '\'' +
+                "\nEndereço: " + endereco;
+    }
 }

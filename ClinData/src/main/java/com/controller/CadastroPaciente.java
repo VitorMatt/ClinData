@@ -20,7 +20,7 @@ public class CadastroPaciente {
 
         Paciente paciente = new Paciente();
 
-        System.out.println("\n===== CADASTRO DE PACIENTE =====");
+        System.out.println("\nCADASTRO DE PACIENTE");
 
         System.out.print("Nome: ");
         paciente.setNome(read.nextLine().trim());
@@ -77,14 +77,8 @@ public class CadastroPaciente {
 
     public void exibirPaciente(Paciente paciente) {
 
-        System.out.println("\n===== DADOS DO PACIENTE =====");
+        System.out.println("\nDADOS DO PACIENTE");
 
-        System.out.println("Nome: " + paciente.getNome());
-        System.out.println("E-mail: " + paciente.getEmail());
-        System.out.println("CPF: " + paciente.getCpf());
-        System.out.println("Telefone: " + paciente.getTelefone());
-        System.out.println("Nascimento: " + paciente.getDataNascimento());
-        System.out.println("Endereço: " + paciente.getEndereco());
-        System.out.println("Preferencial: " + paciente.getPreferencial());
+        System.out.println(paciente.toString());
     }
 }

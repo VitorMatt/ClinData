@@ -1,6 +1,8 @@
 
 package main.java.com.model;
 
+import main.java.com.controller.UnidadesClinicas;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -15,6 +17,7 @@ public class Consulta {
 
     private Paciente paciente;
     private Profissional profissional;
+    private UnidadeClinica unidadeClinica;
 
     public Consulta() {
     }
@@ -27,7 +30,8 @@ public class Consulta {
             LocalTime duracao,
             boolean realizada,
             Paciente paciente,
-            Profissional profissional) {
+            Profissional profissional,
+            UnidadeClinica unidadeClinica) {
 
         this.idConsulta = idConsulta;
         this.tipo = tipo;
@@ -37,6 +41,7 @@ public class Consulta {
         this.realizada = realizada;
         this.paciente = paciente;
         this.profissional = profissional;
+        this.unidadeClinica = unidadeClinica;
     }
 
     public Integer getIdConsulta() {
@@ -102,4 +107,11 @@ public class Consulta {
     public void setProfissional(Profissional profissional) {
         this.profissional = profissional;
     }
+
+    public void setUnidadeClinica(int id) { this.unidadeClinica = new UnidadesClinicas().getUnidade(id); }
+
+    public UnidadeClinica getUnidadeClinica() {
+        return this.unidadeClinica;
+    }
+
 }
