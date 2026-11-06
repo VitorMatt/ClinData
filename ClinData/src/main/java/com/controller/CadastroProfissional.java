@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 import main.java.com.model.Profissional;
+import main.java.com.util.Validator;
 
 public class CadastroProfissional {
 
@@ -15,44 +16,127 @@ public class CadastroProfissional {
         this.read = read;
     }
 
+
     public void cadastrarProfissional() {
 
         Profissional profissional = new Profissional();
 
+        System.out.println("\nCADASTRO DE PROFISSIONAL\n");
+
         System.out.print("Nome: ");
-        profissional.setNome(read.nextLine().trim());
+        String nome = read.nextLine().trim();
+
+        if (Validator.isEmpty(nome)) {
+            System.out.println("O nome não pode ser vazio.");
+            return;
+        }
+
+        profissional.setNome(nome);
 
         System.out.print("E-mail: ");
-        profissional.setEmail(read.nextLine().trim());
+        String email = read.nextLine().trim();
+
+        if (Validator.isEmpty(email) || !Validator.isEmail(email)) {
+            System.out.println("Você deve informar um e-mail válido.");
+            return;
+        }
+
+        profissional.setEmail(email);
 
         System.out.print("Senha: ");
-        profissional.setSenha(read.nextLine().trim());
+        String senha = read.nextLine().trim();
+
+        if (Validator.isEmpty(senha)) {
+            System.out.println("A senha não pode ser vazia.");
+            return;
+        }
+
+        profissional.setSenha(senha);
 
         System.out.print("CPF: ");
-        profissional.setCpf(read.nextLine().trim());
+        String cpf = read.nextLine().trim();
+
+        if (Validator.isEmpty(cpf) || !Validator.isCpfFormatValid(cpf)) {
+            System.out.println("O CPF não pode ser vazio ou inválido.");
+            return;
+        }
+
+        profissional.setCpf(cpf);
 
         System.out.print("Telefone: ");
-        profissional.setTelefone(read.nextLine().trim());
+        String telefone = read.nextLine().trim();
 
-        System.out.print("Data de nascimento (AAAA-MM-DD): ");
-        profissional.setDataNascimento(
-                LocalDate.parse(read.nextLine().trim())
-        );
+        if (Validator.isEmpty(telefone)
+                || !Validator.isTelefoneFormatValid(telefone)) {
+            System.out.println("Informe um telefone válido.");
+            return;
+        }
+
+        profissional.setTelefone(telefone);
+
+        System.out.print("Data de nascimento (dd/MM/yyyy): ");
+        String dataNascimento = read.nextLine().trim();
+
+        if (!Validator.isDate(dataNascimento)) {
+            System.out.println(
+                    "Informe uma data válida no formato dd/MM/yyyy."
+            );
+            return;
+        }
+
+        profissional.setDataNascimento(dataNascimento);
 
         System.out.print("Endereço: ");
-        profissional.setEndereco(read.nextLine().trim());
+        String endereco = read.nextLine().trim();
+
+        if (Validator.isEmpty(endereco)) {
+            System.out.println("O endereço não pode ser vazio.");
+            return;
+        }
+
+        profissional.setEndereco(endereco);
 
         System.out.print("Especialidade: ");
-        profissional.setEspecialidade(read.nextLine().trim());
+        String especialidade = read.nextLine().trim();
+
+        if (Validator.isEmpty(especialidade)) {
+            System.out.println("A especialidade não pode ser vazia.");
+            return;
+        }
+
+        profissional.setEspecialidade(especialidade);
+
+        if (usuarios.buscarPorEmail(profissional.getEmail()) != null
+                || usuarios.buscarPorCPF(profissional.getCpf()) != null) {
+
+            System.out.println(
+                    "Já existe um usuário com esse e-mail ou CPF!"
+            );
+            return;
+        }
 
         UnidadesClinicas unidadesClinicas = new UnidadesClinicas();
 
-        System.out.println("Qual sua unidade de atuação?\n" + unidadesClinicas.listarUnidades());
-        profissional.setUnidadeClinica(Integer.parseInt(read.nextLine().trim()));
+        System.out.println(
+                "\nQual sua unidade de atuação?\n"
+                        + unidadesClinicas.listarUnidades()
+        );
+
+        System.out.println("Informe o código da unidade: ");
+        String entradaUnidade = read.nextLine().trim();
+
+        if (!Validator.isInteger(entradaUnidade)) {
+            System.out.println("Informe um código de unidade numérico válido.");
+            return;
+        }
+
+        int codigoUnidade = Integer.parseInt(entradaUnidade);
+
+        profissional.setUnidadeClinica(codigoUnidade);
 
         usuarios.registrarUsuario(profissional);
 
-        System.out.println("\nProfissional cadastrado com sucesso!");
+        System.out.println("\nProfissional cadastrado com sucesso!\n");
 
         exibirProfissional(profissional);
     }

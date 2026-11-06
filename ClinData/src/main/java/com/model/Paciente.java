@@ -15,7 +15,7 @@ public class Paciente extends Usuario {
     }
 
     public Paciente(Integer idPaciente, String nome, String cpf,
-                    LocalDate dataNascimento, String telefone,
+                    String dataNascimento, String telefone,
                     String email, String endereco, Boolean preferencial) {
 
         this.idPaciente = idPaciente;

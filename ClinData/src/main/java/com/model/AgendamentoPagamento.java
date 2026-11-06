@@ -4,6 +4,7 @@ import main.java.com.controller.UnidadesClinicas;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AgendamentoPagamento {
 
@@ -103,18 +104,26 @@ public class AgendamentoPagamento {
         this.profissional = profissional;
     }
 
+
     @Override
     public String toString() {
-        return  "\nId: " + idAgendamento +
-                "\nHorário: " + horario +
-                "\nData: " + data +
+        DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
+        DateTimeFormatter formatoDataHora = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+        return "\nId: " + idAgendamento +
+                "\nHorário: " + (horario != null ? horario.format(formatoHora) : "Não informado") +
+                "\nData: " + (data != null ? data.format(formatoData) : "Não informada") +
                 "\nStatus: " + status +
-                "\nData e hora do pagamento: " + dataHoraPagamento +
-                "\nForma de pagamento: '" + formaPagamento + '\'' +
+                "\nData e hora do pagamento: " +
+                (dataHoraPagamento != null ? dataHoraPagamento.format(formatoDataHora) : "Não realizado") +
+                "\nForma de pagamento: " + (formaPagamento != null ? formaPagamento : "Não informada") +
                 "\nValor: " + valor +
-                "\nUnidade Clínica: " + unidadeClinica.getIdUnidade() + " - " +
-                 unidadeClinica.getNome() + " (" + unidadeClinica.getEstado() + ")" +
-                "\nPaciente: " + paciente.getNome() +
-                "\nProfissional: " + profissional.getNome();
+                "\nUnidade Clínica: " + (unidadeClinica != null
+                ? unidadeClinica.getIdUnidade() + " - " +
+                unidadeClinica.getNome() + " (" + unidadeClinica.getEstado() + ")"
+                : "Não informada") +
+                "\nPaciente: " + (paciente != null ? paciente.getNome() : "Não informado") +
+                "\nProfissional: " + (profissional != null ? profissional.getNome() : "Não informado");
     }
 }

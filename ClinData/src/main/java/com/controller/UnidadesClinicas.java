@@ -1,13 +1,16 @@
 package main.java.com.controller;
 import main.java.com.model.Estado;
 import main.java.com.model.UnidadeClinica;
+import main.java.com.util.ArrayListFormatter;
 
 import java.util.List;
 import java.util.ArrayList;
 
 public class UnidadesClinicas {
 
-        public List<UnidadeClinica> listarUnidades() {
+    List<UnidadeClinica> unidadesClinicas = new ArrayList<>();
+
+        public String listarUnidades() {
 
             List<UnidadeClinica> unidades = new ArrayList<>();
 
@@ -54,8 +57,8 @@ public class UnidadesClinicas {
             unidades.add(new UnidadeClinica(
                     5,
                     "Clínica Nova Esperança",
-                    Estado.SC,
-                    "Joinville",
+                    Estado.PR,
+                    "Curitiba",
                     "Rua Dona Francisca",
                     2100,
                     "Sala 105"
@@ -65,18 +68,23 @@ public class UnidadesClinicas {
                     6,
                     "Centro Clínico São Lucas",
                     Estado.RS,
-                    "Itajaí",
+                    "Porto Alegre",
                     "Avenida Marcos Konder",
                     650,
                     "Bloco B"
             ));
 
-            return unidades;
+            this.unidadesClinicas = unidades;
+
+            ArrayListFormatter formatador = new ArrayListFormatter();
+
+            return formatador.formatarArray(unidades);
     }
 
     public UnidadeClinica getUnidade(int id) {
 
-            for (UnidadeClinica unidade : listarUnidades()) {
+            listarUnidades();
+            for (UnidadeClinica unidade : this.unidadesClinicas) {
 
                 if (unidade.getIdUnidade() == id) {
                     return unidade;

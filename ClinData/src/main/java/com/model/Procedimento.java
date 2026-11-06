@@ -69,10 +69,12 @@ public class Procedimento {
 
     @Override
     public String toString() {
-        return  "\nId: " + idProcedimento +
+        return "\nId: " + idProcedimento +
                 "\nNome: " + nome +
-                "\nDescricao: " + descricao +
+                "\nDescrição: " + descricao +
                 "\nOrientações: " + orientacoes +
-                "\nConsulta referente: " + consulta.toString();
+                "\nConsulta referente: " +
+                (consulta != null ? consulta.toString() : "Não vinculada");
     }
+
 }

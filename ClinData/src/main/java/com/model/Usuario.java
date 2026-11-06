@@ -1,5 +1,11 @@
 package main.java.com.model;
+import main.java.com.util.DateFormatter;
+import main.java.com.util.CpfFormatter;
+import main.java.com.util.TelefoneFormatter;
+import main.java.com.util.Validator;
+
 import java.time.LocalDate;
+
 
 public class Usuario {
 
@@ -23,16 +29,22 @@ public class Usuario {
         return senha;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
+    public String getDataNascimento() {
+
+        DateFormatter formatador = new DateFormatter();
+        return formatador.exibirData(this.dataNascimento);
     }
 
     public String getTelefone() {
-        return telefone;
+
+        TelefoneFormatter formatador = new TelefoneFormatter();
+        return formatador.formatarTelefone(this.telefone);
     }
 
     public String getCpf() {
-        return cpf;
+
+        CpfFormatter formatador = new CpfFormatter();
+        return formatador.formatarCpf(this.cpf);
     }
 
     public String getEndereco() {
@@ -51,8 +63,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDataNascimento(String dataNascimento) {
+
+        DateFormatter formatador = new DateFormatter();
+        LocalDate dataFormatada = formatador.formatarData(dataNascimento);
+        this.dataNascimento = dataFormatada;
     }
 
     public void setTelefone(String telefone) {
@@ -60,6 +75,7 @@ public class Usuario {
     }
 
     public void setCpf(String cpf) {
+
         this.cpf = cpf;
     }
 
@@ -71,10 +87,9 @@ public class Usuario {
     public String toString() {
         return  "\nNome: " + nome +
                 "\nEmail: " + email +
-                "\nSenha: " + senha +
-                "\nData de nascimento: " + dataNascimento +
-                "\nTelefone: " + telefone +
-                "\nCPF: " + cpf +
+                "\nData de nascimento: " + getDataNascimento() +
+                "\nTelefone: " + getTelefone() +
+                "\nCPF: " + getCpf() +
                 "\nEndereço: " + endereco;
     }
 }

@@ -2,8 +2,11 @@
 package main.java.com.model;
 
 import main.java.com.controller.UnidadesClinicas;
+import main.java.com.util.DateFormatter;
+import main.java.com.util.HorarioFormatter;
 
 import java.time.LocalDate;
+import java.time.Duration;
 import java.time.LocalTime;
 
 public class Consulta {
@@ -12,7 +15,7 @@ public class Consulta {
     private String tipo;
     private LocalDate data;
     private LocalTime horario;
-    private LocalTime duracao;
+    private Duration duracao;
     private boolean realizada;
 
     private Paciente paciente;
@@ -27,7 +30,7 @@ public class Consulta {
             String tipo,
             LocalDate data,
             LocalTime horario,
-            LocalTime duracao,
+            Duration duracao,
             boolean realizada,
             Paciente paciente,
             Profissional profissional,
@@ -60,27 +63,32 @@ public class Consulta {
         this.tipo = tipo;
     }
 
-    public LocalDate getData() {
-        return data;
+    public String getData() {
+
+        DateFormatter formatador = new DateFormatter();
+
+        return formatador.exibirData(this.data);
     }
 
     public void setData(LocalDate data) {
         this.data = data;
     }
 
-    public LocalTime getHorario() {
-        return horario;
+    public String getHorario() {
+
+        HorarioFormatter formatador = new HorarioFormatter();
+        return formatador.exibirHorario(this.horario);
     }
 
     public void setHorario(LocalTime horario) {
         this.horario = horario;
     }
 
-    public LocalTime getDuracao() {
-        return duracao;
+    public Duration getDuracao() {
+        return this.duracao;
     }
 
-    public void setDuracao(LocalTime duracao) {
+    public void setDuracao(Duration duracao) {
         this.duracao = duracao;
     }
 
@@ -118,9 +126,9 @@ public class Consulta {
     public String toString() {
         return  "\nId: " + idConsulta +
                 "\nTipo: " + tipo +
-                "\nData: " + data +
-                "\nHorário: " + horario +
-                "\nDuração: " + duracao +
+                "\nData: " + getData() +
+                "\nHorário: " + getHorario() +
+                "\nDuração: " + duracao.toMinutes() +
                 "\nRealizada? " + (realizada ? "Sim" : "Não") +
                 "\nPaciente: " + paciente.getNome() +
                 "\nProfissional: " + profissional.getNome() +
